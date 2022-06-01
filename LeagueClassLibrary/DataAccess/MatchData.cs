@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LeagueClassLibrary.DataAccess
 {
-    internal class MatchData
+    public static class MatchData
     {
     }
 }

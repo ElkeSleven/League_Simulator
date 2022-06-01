@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace LeagueClassLibrary.DataAccess
 {
-    internal class AbilityData
+    public static class AbilityData
     {
+
+
     }
 }

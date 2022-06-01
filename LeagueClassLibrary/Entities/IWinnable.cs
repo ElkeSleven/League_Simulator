@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace LeagueClassLibrary.Entities
 {
-    internal interface IWinnable
+    public interface IWinnable
     {
+        int Winner { get; set; }
+        void DiscideWinner();
+
     }
 }
