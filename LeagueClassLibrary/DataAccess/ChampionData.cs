@@ -1,5 +1,8 @@
-﻿using System;
+﻿using LeagueClassLibrary.Entities;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +44,7 @@ namespace LeagueClassLibrary.DataAccess
 {
     public static class ChampionData
     {
-        public static DataTable DataTableChampions { get; set; }
+        public static DataTable DataTableChampion { get; set; }
         private static Random r = new Random();
         /*
          ChampionName;
@@ -59,46 +62,63 @@ namespace LeagueClassLibrary.DataAccess
          */
         public static void LoadCSV(string padNaarCsv)
         {
-            Champion c;
+            //1. Maat DataTable
+            DataTableChampion = new DataTable("Champions");
 
-            string[] ChampionName;
-            string[] ChampionTitle;
-            string[] ChampionClass;
-            string[] ReleaseYear;
-            string[] ChampionPosition1;
-            string[] ChampionPosition2;
-            string[] ChampionPosition3;
-            string[] ChampionIcon;
-            string[] ChampionBanner;
-            string[] ChampionRPCost;
-            string[] ChampionIPCost;
-
-
-            using (StreamReader sr = new StreamReader(padNaarCsv))
-            {
-                while (!sr.EndOfStream)
-                {
-                    ChampionName = sr.ReadLine().Split(';');
-                    ChampionTitle = sr.ReadLine().Split(';');
-                    ChampionClass = sr.ReadLine().Split(';');
-                    ReleaseYear = sr.ReadLine().Split(';');
-                    ChampionPosition1 = sr.ReadLine().Split(';');
-                    ChampionPosition2 = sr.ReadLine().Split(';');
-                    ChampionPosition3 = sr.ReadLine().Split(';');
-                    ChampionIcon = sr.ReadLine().Split(';');
-                    ChampionBanner = sr.ReadLine().Split(';');
-                    ChampionRPCost = sr.ReadLine().Split(';');
-                    ChampionIPCost = sr.ReadLine().Split(';');
-
-
-
-                    // c =  new Champion( );
-
-                }
-
-
-            }
+            //2 maak alle DataColumn's
+            DataColumn name = new DataColumn("Name",  typeof(string));
+            DataColumn title = new DataColumn("Title",  typeof(string));
+            DataColumn releaseYear = new DataColumn("ReleaseYear",  typeof(int));
+            DataColumn position1 = new DataColumn("Position1",  typeof(string));
+            DataColumn position2 = new DataColumn("Position2",  typeof(string));
+            DataColumn position3 = new DataColumn("Position2",  typeof(string));
+            DataColumn banner = new DataColumn("Icon Sourse", typeof (string));
         }
 
+        public static DataView GetDataView()
+        {
+            return DataTableChampion.DefaultView;
+        }
+
+
+        public static Champion GetRandomChampionByPosition(string position)  // top mid bot jug 
+        {
+            Champion champion = null;
+
+            // eerst kijken als de champ de position heeft en dan .. een wilkeurige champ nemen 
+            var championsMetCorrectePosition =
+                DataTableChampion.AsEnumerable()
+                .Where(x => x["Position 1"].ToString().Equals(position) ||
+                x["Position 2"].ToString().Equals(position) ||
+                x["Position 3"].ToString().Equals(position)
+               ).ToList();
+
+            int rIndex = r.Next(0, championsMetCorrectePosition.Count);
+            
+            var geselecteerdeChampionRow = championsMetCorrectePosition[rIndex];
+
+            List<string> positions = new List<string>()
+            {
+                geselecteerdeChampionRow["Position 1"].ToString(),
+                geselecteerdeChampionRow["Position 2"].ToString(),
+                geselecteerdeChampionRow["Position 3"].ToString()
+            };
+
+           string championName  = geselecteerdeChampionRow["Name"].ToString();
+            List<Ability> abilities = AbilityData.GetAbilitiesByChampionName(championName);
+
+            champion = new Champion(
+                championName,
+                geselecteerdeChampionRow["Title"].ToString(),
+                geselecteerdeChampionRow["Class"].ToString(), 
+                Convert.ToInt32(geselecteerdeChampionRow["Release"]),
+                abilities,
+                position,
+                geselecteerdeChampionRow["Icon Source"].ToString(),
+                geselecteerdeChampionRow[""]
+                );
+
+            return champion;
+        }
     }
 }

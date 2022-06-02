@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueClassLibrary.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,31 @@ namespace LeagueClassLibrary.Entities
 {
     public class TwistedTreeline : Match
     {
+
+
         public TwistedTreeline(string code) : base(code)
         {
         }
 
         public override void GenereerTeams()
         {
-            throw new NotImplementedException();
+
+            Team1Champions = new List<Champion>();
+            Team2Champions = new List<Champion>();
+
+            List<string> positions = new List<string>()
+            { "top", "top","jung" };
+
+
+            foreach (string position in positions)
+            {
+                Team1Champions.Add(ChampionData.GetRandomChampionByPosition(position));
+            }
+
+            foreach (string position in positions)
+            {
+                Team1Champions.Add(ChampionData.GetRandomChampionByPosition(position));
+            }
         }
     }
 }

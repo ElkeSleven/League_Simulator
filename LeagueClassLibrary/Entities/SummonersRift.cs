@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueClassLibrary.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,23 @@ namespace LeagueClassLibrary.Entities
 
         public override void GenereerTeams()
         {
-            throw new NotImplementedException();
+            Team1Champions = new List<Champion>();
+            Team2Champions = new List<Champion>();
+            
+            List<string> positions = new List<string>()
+            { "sup", "mid","bot","jung","top" };
+            
+
+            foreach (string position in positions)
+            {
+                Team1Champions.Add(ChampionData.GetRandomChampionByPosition(position));
+            }
+
+            foreach (string position in positions)
+            {
+                Team1Champions.Add(ChampionData.GetRandomChampionByPosition(position));
+            }
+
         }
     }
 }
