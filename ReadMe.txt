@@ -11,7 +11,7 @@ Dit een voorbeeld examen voor sem2 1pro 2022
 - using System.Text;
 
 
-
+Bekijk de opgaven in het PDF bestand 
 
 
 

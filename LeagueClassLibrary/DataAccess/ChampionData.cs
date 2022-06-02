@@ -72,7 +72,10 @@ namespace LeagueClassLibrary.DataAccess
             DataColumn position1 = new DataColumn("Position1",  typeof(string));
             DataColumn position2 = new DataColumn("Position2",  typeof(string));
             DataColumn position3 = new DataColumn("Position2",  typeof(string));
-            DataColumn banner = new DataColumn("Icon Sourse", typeof (string));
+            DataColumn icon = new DataColumn("Icon Sourse", typeof (string));
+            DataColumn banner = new DataColumn("Banner Sourse", typeof (string));
+            DataColumn RP = new DataColumn("RP", typeof (int));
+            DataColumn IP = new DataColumn("IP", typeof (int));
         }
 
         public static DataView GetDataView()
@@ -110,12 +113,14 @@ namespace LeagueClassLibrary.DataAccess
             champion = new Champion(
                 championName,
                 geselecteerdeChampionRow["Title"].ToString(),
-                geselecteerdeChampionRow["Class"].ToString(), 
+                geselecteerdeChampionRow["Class"].ToString(),
                 Convert.ToInt32(geselecteerdeChampionRow["Release"]),
                 abilities,
-                position,
+                positions,
                 geselecteerdeChampionRow["Icon Source"].ToString(),
-                geselecteerdeChampionRow[""]
+                geselecteerdeChampionRow["Banner Source"].ToString(),
+                Convert.ToInt32(geselecteerdeChampionRow["RP"]),
+                Convert.ToInt32(geselecteerdeChampionRow["IP"])
                 );
 
             return champion;

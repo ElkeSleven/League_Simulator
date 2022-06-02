@@ -52,7 +52,7 @@ namespace LeagueClassLibrary.DataAccess
             abilitiesOfChampion = (from ability in Abilities
                                    where ability.ChampionName.Equals(ChampionName)
                                    select ability).ToList();
-            abilitiesOfChampion =  Abilities.Where(x => x.ChampionName.Equals(ChampionName)).ToList();
+            //abilitiesOfChampion =  Abilities.Where(x => x.ChampionName.Equals(ChampionName)).ToList();
 
 
             return abilitiesOfChampion;

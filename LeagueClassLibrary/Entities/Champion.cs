@@ -26,7 +26,7 @@ o Deze methode geeft de IP en RP cost terug in de volgende template:
 
 namespace LeagueClassLibrary.Entities
 {
-    public class Champion
+    public  class Champion
     {
         public string Name { get; set; }
         public string Title { get; set; }
@@ -41,7 +41,7 @@ namespace LeagueClassLibrary.Entities
         public int CostIP { get; set; }
         public int CostRP { get; set; }
 
-        protected Champion(string name, string title, string @class, int releaseYear, List<Ability> abilities, List<string> positions, string iconSource, string bannerSource, int costIP, int costRP)
+        public Champion(string name, string title, string @class, int releaseYear, List<Ability> abilities, List<string> positions, string icon, string banner, int costRP, int costIP  )
         {
             Name = name;
             Title = title;
@@ -49,15 +49,15 @@ namespace LeagueClassLibrary.Entities
             ReleaseYear = releaseYear;
             Abilities = abilities;
             Positions = positions;
-            IconSource = iconSource;
-            BannerSource = bannerSource;
-            CostIP = costIP;
+            IconSource = icon;
+            BannerSource = banner;
             CostRP = costRP;
+            CostRP = costIP;
         }
 
         public string GetCost()
         {
-            return $"?";
+            return $"RP: {CostRP} / IP: { CostIP}";
         }
 
 
