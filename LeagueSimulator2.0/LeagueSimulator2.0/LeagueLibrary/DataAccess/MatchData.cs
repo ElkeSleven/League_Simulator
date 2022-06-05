@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 using System.Data;
 using LeagueLibrary.Entities;
+using System.IO;
 
 namespace LeagueLibrary.DataAccess
 {
     public static class MatchData
     {
+
+        //**
         public static DataTable DataTableMatches { get; set; }
 
+
+        //** column   *kolomnamen aanmaken 
         public static void InitializeDataTableMatches()
         {
             try
@@ -41,6 +46,8 @@ namespace LeagueLibrary.DataAccess
             }
         }
 
+
+        //** voegt de match toe aan  DataTableMatches  */
         public static void AddFinishedMatch(Match match)
         {
             if (DataTableMatches != null)
@@ -54,23 +61,34 @@ namespace LeagueLibrary.DataAccess
             }
         }
 
+
+        //**DataView matches  * / 
         public static DataView GetDataViewMatches()
         {
-            return DataTableMatches.AsDataView();
+            if(DataTableMatches != null)
+            {
+                return DataTableMatches.AsDataView();
+            }
+            return null;
+            
         }
 
-        public static void ExportToXML(string filePath)
+
+        /**Save as XML  *****/
+        public static void ExportToXML(string pad)
         {
             try
             {
-                DataTableMatches.WriteXml(filePath + "/Matches.xml");
+                DataTableMatches.WriteXml(pad + "\\Matches.xml");
             }
             catch (Exception e)
             {
-                throw e;
+                throw e;     // De objectverwijzing is niet op een exemplaar van een object ingesteld.
             }
         }
 
+
+        /**Controlle als de ingegeven code uniek is */
         public static bool IsUniqueCode(string code)
         {
             foreach (DataRow row in DataTableMatches.Rows)

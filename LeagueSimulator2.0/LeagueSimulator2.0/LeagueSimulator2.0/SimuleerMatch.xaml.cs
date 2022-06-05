@@ -31,7 +31,7 @@ namespace LeagueSimulator2._0
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            MatchData.InitializeDataTableMatches();
+           // MatchData.InitializeDataTableMatches();
         }
 
         //// wpf2 /// Bij :hover over een img   
@@ -130,12 +130,12 @@ namespace LeagueSimulator2._0
         private void Genereer5v5Button_Click(object sender, RoutedEventArgs e)
         {
             string code = PasswordBoxMatchCode.Password;
-            if (!string.IsNullOrEmpty(code))
+            if (!string.IsNullOrEmpty(code)) 
             {
-                bool isUniek = MatchData.IsUniqueCode(code);              /*********/// kijkt als de code al voorkomt in de table dataTabelMatches
+                bool isUniek = MatchData.IsUniqueCode(code);/*            */// kijkt als de code al voorkomt in de table dataTabelMatches
                 if (isUniek)           
                 {
-                    currentMatch = new SummonesRift(code);
+                    currentMatch = new SummonesRift(code);                /// 
                     currentMatch.GenereerTeams();
 
                     List<BitmapImage> icons = new List<BitmapImage>();

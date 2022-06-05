@@ -19,10 +19,7 @@ using LeagueLibrary.DataAccess;
 using Microsoft.Win32;
 using System.IO;
 using Path = System.IO.Path;
-
-
-
-
+using System.Data;
 
 namespace LeagueSimulator2._0
 {
@@ -43,6 +40,7 @@ namespace LeagueSimulator2._0
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             VulComboBoxPositions();
+            MatchData.InitializeDataTableMatches();
         }
        
         
@@ -67,11 +65,11 @@ namespace LeagueSimulator2._0
                 if (ofd.ShowDialog() == true)                                                   /// opent de verkenner 
                 {                                                                               
                     ChampionsData.LoadCSV(ofd.FileName);                                        /// TO: 'ChampionData'   ChampionData.LoadCSV
-                    DataGridChampions.ItemsSource = ChampionsData.GetDataViewChampions();       /// vult het DataGrid op de xaml "DataGridChampions"
+                    GetDataViewChampions();                                                     /// vult het DataGrid op de xaml "DataGridChampions"
                                                                                                 /// TO:'ChampionData'    return DataTableChampions.AsDataView();
-                                                                                               
+
                     CheckBoxLaadChamionData.IsChecked = true  ;                                 /// CheckBox op de xaml word aangevinkt 
-                    EnableTabsEnDataGridAlsDataGeladen();                                     /// TO: kijkt als bijde CkeckBox's zijn aangevink 
+                    EnableTabsEnDataGridAlsDataGeladen();                                       /// TO: kijkt als bijde CkeckBox's zijn aangevink 
                                                                                                 /// kijkt als bijde csv files zijn geladen
                 }
             }
@@ -119,45 +117,89 @@ namespace LeagueSimulator2._0
             }
         }
 
-      
-        
-        
-        
-        // 
+
+
+
+
+        //AsDataView *GetDataViewChampions
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-
-
-
-
-        // sort
-        private void ComboBoxPositions_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-        // sort
-        private void DataGridChampions_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-        // sort 
-        private void BestToWorstButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            GetDataViewChampions();
         }
     
+        //**AsDataView **DataGridChampions.ItemsSource    *ResetButton_Click   *LaadChampionDataButton_Click
+        private void GetDataViewChampions()
+        {
+            DataGridChampions.ItemsSource = ChampionsData.GetDataViewChampions();       /// vult het DataGrid op de xaml "DataGridChampions"
+                                                                                        /// TO:'ChampionData'    return DataTableChampions.AsDataView();
+        }
 
 
-        // open wpf
+
+
+        //** SelectionChanged **Sort  ***** sorteren op positions  { "sup", "mid", "bot", "jung", "top" };  
+        private void ComboBoxPositions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBoxPositions.SelectedItem != null) // kijkt als er een item is gesilecteerd   { "sup", "mid", "bot", "jung", "top" };  
+            {
+
+                DataGridChampions.ItemsSource =
+                    ChampionsData.GetDataViewChampionsByPosition(ComboBoxPositions.SelectedItem.ToString()); // TO: 'ChampionData'
+            }
+        }
+              
+        //** SelectionChanged ***** img naam en title ophalen uit de selected row 
+        private void DataGridChampions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataGridChampions.SelectedItem != null)
+            {
+                try
+                {
+                    DataRowView drv = (DataRowView)DataGridChampions.CurrentCell.Item;                                                   // selected row  
+                    
+                    string path = Path.Combine(Directory.GetCurrentDirectory() + "/images/" + drv.Row.ItemArray[7]);                     // ItemArray[7]   imageSorce
+                    
+                    ImageChampion.Source = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));                                   // FILL: img
+
+                    TextBlockChampionTitle.Text = drv.Row.ItemArray[0] + " " + drv.Row.ItemArray[1];                                     // FILL ; textbox met naam en title
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);                                                                                   //* als het pad niet gevonden word   
+                }
+            }
+
+        }
+
+
+
+        //**Sort ***** sorteren op ReleaseYear , ChampionPosition2 , ChampionPosition , ChampionName
+        private void BestToWorstButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridChampions.ItemsSource = ChampionsData.GetDataViewChampionsBestToWorst();   // vult het DataGrid op de xaml "DataGridChampions"
+                                                                                               // TO: 'ChampionData' 
+        }
+        /*  tip 
+         *  descending : van nieuw naar oud  , van groot naar klein 
+         *  a
+         *  
+         *  
+         *  
+         *  
+         *  
+         *  
+         */
+
+
+        //** open wpf   **** naar Overzicht Match ( *datatabele  -match -winner -code  , *als xml opslaan 
         private void overzichtMatches_Click(object sender, RoutedEventArgs e)
         {
             OverzichtMatches oM = new OverzichtMatches();
             oM.ShowDialog();
         }
-        // open wpf
+
+
+        // open wpf   **** naar Simuleer Match ( *random match genereren 3v3 of 5v5  , *random winner ,  *:hover -img -name -title ,  *
         private void simuleerMatch_Click(object sender, RoutedEventArgs e)
         {
             SimuleerMatch sM = new SimuleerMatch();

@@ -9,7 +9,7 @@ namespace LeagueLibrary.Entities
 {
     public class SummonesRift : Match
     {
-      
+        public SummonesRift(string code) : base(code) { }
 
         public override void GenereerTeams()
         {
@@ -31,10 +31,7 @@ namespace LeagueLibrary.Entities
             Team2Champions.AddRange(new Champion[] { sup2, mid2, jung2, bot2, top2 });
         }
 
-        public SummonesRift(string code) : base(code)
-        {
-
-        }
+        
 
     }
 }

@@ -17,8 +17,8 @@ namespace LeagueLibrary.DataAccess
         private static Random r = new Random();
 
         // ïnitialiseerd DataTabel DataTableChampions 
-        // maakt eerste column naam 
-        // vult datatable met waarden
+        // maakt column namen aan 
+        // vul datatable met waarden 
         public static void LoadCSV(string padNaarCsv)
         {
 
@@ -29,9 +29,10 @@ namespace LeagueLibrary.DataAccess
 
 
 
-            /* Kolommen (Column's) maken columName is variabele naam die we in de app. gebruiken 
-            * ColumnName is de naam de als header staat
-            */
+            /** Kolommen (Column's) maken 
+             ** columName is variabele naam die we in de app. gebruiken 
+             ** ColumnName is de naam de als header staat*/
+
             DataColumn columnName = new DataColumn(headers[index++], typeof(string));
             DataColumn columnTitle = new DataColumn(headers[index++], typeof(string));
             DataColumn columnClass = new DataColumn(headers[index++], typeof(string));
@@ -46,12 +47,15 @@ namespace LeagueLibrary.DataAccess
 
 
 
-            // set RANGE 
+            //** set RANGE 
             DataTableChampions.Columns.AddRange(new DataColumn[] {
                                 columnName,columnTitle,columnClass,columnYear,columnPos1,columnPos2,
                                 columnPos3, columnIcon,columnBanner,columnRPCost,columnIPCost
             });
 
+
+
+            //** data inlezen 
             rijen.Skip(1).ToList().ForEach(rij =>
             {
 
@@ -91,7 +95,7 @@ namespace LeagueLibrary.DataAccess
 
         }
 
-        // sorteren 
+        //**Sort  **** sorteren op positie   *MainWPF Btn click 
         public static DataView GetDataViewChampionsByPosition(string position)
         {
             if (DataTableChampions != null)
@@ -105,7 +109,7 @@ namespace LeagueLibrary.DataAccess
         }
 
 
-        // sorteren 
+        //**Sort ****** sorteren op         *MainWPF Btn click 
         public static DataView GetDataViewChampionsBestToWorst()
         {
             if (DataTableChampions != null)
@@ -123,7 +127,7 @@ namespace LeagueLibrary.DataAccess
         }
 
 
-        // sorteren 
+        // sorteren                         *MatchWPF  3v3  5v5
         public static Champion GetRandomChampionByPosition(string position)
         {
             if (DataTableChampions != null)

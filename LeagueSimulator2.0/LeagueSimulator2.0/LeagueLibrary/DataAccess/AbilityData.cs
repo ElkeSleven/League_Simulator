@@ -12,8 +12,11 @@ namespace LeagueLibrary.DataAccess
 {
     public static class AbilityData
     {
-         public static List<Ability> Abilities { get; set; }
-         public static void LoadCSV(string padNaarCsv)
+        //** 
+        public static List<Ability> Abilities { get; set; }
+
+        //** ïnitialiseerd DataTabel  *tabel namen  *new Ability 
+        public static void LoadCSV(string padNaarCsv)
         {
             Abilities = new List<Ability>();
             try
@@ -42,7 +45,9 @@ namespace LeagueLibrary.DataAccess
 
 
         }
-         public static List<Ability> GetAbilitiesByChampionName(string championName)
+
+        //** haal alle abilities van een Champ op 
+        public static List<Ability> GetAbilitiesByChampionName(string championName)
         {
             if (Abilities != null)
             {

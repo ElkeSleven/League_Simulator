@@ -12,8 +12,8 @@
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Simuleer Match" Click="simuleerMatch_Click" Name="simuleerMatch" FontSize="16" Padding="2"/>
-            <MenuItem Header="Overzicht Matches" Click="overzichtMatches_Click" Name="overzichtMatches" FontSize="16" Padding="2"/>
+            <MenuItem Header="Simuleer Match" Click="simuleerMatch_Click" Name="simuleerMatch" FontSize="16" Padding="2" IsEnabled="False"/>
+            <MenuItem Header="Overzicht Matches" Click="overzichtMatches_Click" Name="overzichtMatches" FontSize="16" Padding="2" IsEnabled="False"/>
         </Menu>
   
     
@@ -78,8 +78,8 @@
                     <Viewbox
                         Grid.Column="1"
                         Grid.Row="4"
-                        Grid.ColumnSpan="2"
-                        Margin="20" >
+                        Grid.ColumnSpan="1"
+                        Margin="0 10" >
                         <TextBlock Name="TextBlockChampionTitle"
                                
                                    Foreground="#cd9929">Name and Title</TextBlock>
