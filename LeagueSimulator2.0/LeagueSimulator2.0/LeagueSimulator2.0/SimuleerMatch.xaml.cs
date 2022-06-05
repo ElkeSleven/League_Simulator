@@ -29,12 +29,8 @@ namespace LeagueSimulator2._0
         }
         private Match currentMatch;
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-           // MatchData.InitializeDataTableMatches();
-        }
 
-        //// wpf2 /// Bij :hover over een img   
+        //** Bij :hover over een img   
         private void LaadChampion(int indexChampion, int team)
         {
             if (currentMatch != null)
@@ -126,7 +122,7 @@ namespace LeagueSimulator2._0
         #endregion
 
 
-        // tab 2
+        //** 5b5
         private void Genereer5v5Button_Click(object sender, RoutedEventArgs e)
         {
             string code = PasswordBoxMatchCode.Password;
@@ -177,7 +173,7 @@ namespace LeagueSimulator2._0
 
 
 
-        // tab 2
+        //** 3v3
         private void Genereer3v3Button_Click(object sender, RoutedEventArgs e)
         {
             string code = PasswordBoxMatchCode.Password;
@@ -223,7 +219,7 @@ namespace LeagueSimulator2._0
         }
 
 
-        // tab 2
+        //** 
         private void BeslisWinnaarButton_Click(object sender, RoutedEventArgs e)
         {
             if (currentMatch != null)
