@@ -1,6 +1,0 @@
-C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueClassLibrary\bin\Debug\LeagueClassLibrary.dll
-C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueClassLibrary\bin\Debug\LeagueClassLibrary.pdb
-C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueClassLibrary\obj\Debug\LeagueClassLibrary.csproj.AssemblyReference.cache
-C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueClassLibrary\obj\Debug\LeagueClassLibrary.csproj.CoreCompileInputs.cache
-C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueClassLibrary\obj\Debug\LeagueClassLibrary.dll
-C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueClassLibrary\obj\Debug\LeagueClassLibrary.pdb

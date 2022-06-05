@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LeagueLibrary.Entities
 {
-    public abstract class TwistedTreeline : Match
+    public class TwistedTreeline : Match
     {
         public TwistedTreeline(string code) : base(code) { }
 

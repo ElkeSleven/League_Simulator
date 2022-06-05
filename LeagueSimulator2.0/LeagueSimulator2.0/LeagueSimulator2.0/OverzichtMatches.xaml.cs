@@ -27,7 +27,7 @@ namespace LeagueSimulator2._0
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            MatchData.InitializeDataTableMatches();                         // TO: 'MatchData'
+           // MatchData.InitializeDataTableMatches();                         // TO: 'MatchData'
 
             DataGridMatches.ItemsSource = MatchData.GetDataViewMatches();   // vult het DataGrid op de xaml "DataGridMatches"
                                                                             // TO: 'MatchData'  return 

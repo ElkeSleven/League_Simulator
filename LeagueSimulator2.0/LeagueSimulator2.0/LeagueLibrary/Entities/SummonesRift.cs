@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LeagueLibrary.Entities
 {
-    public abstract class SummonesRift : Match
+    public class SummonesRift : Match
     {
       
 

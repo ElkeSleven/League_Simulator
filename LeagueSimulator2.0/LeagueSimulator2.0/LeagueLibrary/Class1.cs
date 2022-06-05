@@ -53,7 +53,7 @@ namespace LeagueLibrary
         * maak de class ook abstract
         * method heeft geen body omdat deze abstract is 
 
-        * classes dat erft van een abstract word ook abstract
+        * classes dat erft van een abstracte class worden ook abstract  (niet waaar) 
         *
 
 

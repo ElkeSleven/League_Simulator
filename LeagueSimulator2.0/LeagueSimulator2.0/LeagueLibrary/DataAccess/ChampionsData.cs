@@ -14,7 +14,7 @@ namespace LeagueLibrary.DataAccess
     public static class ChampionsData
     {
         private static DataTable DataTableChampions;
-        private static Random R = new Random();
+        private static Random r = new Random();
 
         // ïnitialiseerd DataTabel DataTableChampions 
         // maakt eerste column naam 

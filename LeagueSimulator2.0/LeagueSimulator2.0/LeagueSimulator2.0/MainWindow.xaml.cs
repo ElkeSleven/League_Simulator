@@ -35,13 +35,17 @@ namespace LeagueSimulator2._0
         {
             InitializeComponent();
         }
-        /************///
+   
+        /************/// 
         private List<string> positionsList = new List<string>() { "sup", "mid", "bot", "jung", "top" };
+        
+        /***********/// Loading 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             VulComboBoxPositions();
         }
        
+        
         /***********/// combobox word gevult met de waarde uit de list positionsList
         private void VulComboBoxPositions()
         {
@@ -50,6 +54,7 @@ namespace LeagueSimulator2._0
                 ComboBoxPositions.Items.Add(pos);     // FROM: L:29  private List<string> positionsList = new List<string>() { "sup", "mid", "bot", "jung", "top" };  
             }
         }
+        
         
         /***********/// verkennner word geapend en de file word doorgegeven aan Data.LoadCSV 
         private void LaadChampionDataButton_Click(object sender, RoutedEventArgs e)
@@ -66,7 +71,7 @@ namespace LeagueSimulator2._0
                                                                                                 /// TO:'ChampionData'    return DataTableChampions.AsDataView();
                                                                                                
                     CheckBoxLaadChamionData.IsChecked = true  ;                                 /// CheckBox op de xaml word aangevinkt 
-                   // EnableTabsEnDataGridAlsDataGeladen();                                     /// TO: kijkt als bijde CkeckBox's zijn aangevink 
+                    EnableTabsEnDataGridAlsDataGeladen();                                     /// TO: kijkt als bijde CkeckBox's zijn aangevink 
                                                                                                 /// kijkt als bijde csv files zijn geladen
                 }
             }
@@ -74,15 +79,10 @@ namespace LeagueSimulator2._0
             {
                 MessageBox.Show(exception.Message);                                             /// *foute format  *foute file   *fout bij het uitlezen 
             }
-
-
-
-
-
         }
 
 
-        /******/// verkennner word geapend en de file word doorgegeven aan Data.LoadCSV 
+        /*********/// verkennner word geapend en de file word doorgegeven aan Data.LoadCSV 
         private void LaadAbilityDataButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();                  
@@ -94,7 +94,7 @@ namespace LeagueSimulator2._0
                 {
                     AbilityData.LoadCSV(ofd.FileName);                                          /// TO: 'AbilityData' 
 
-                    CheckBoxLaadChamionData.IsChecked = true;                                   /// CheckBox op de xaml word aangevinkt 
+                    CheckBoxLaadAbilityData.IsChecked = true;                                   /// CheckBox op de xaml word aangevinkt 
                     EnableTabsEnDataGridAlsDataGeladen();                                       /// EnableTabsEnDataGridAlsDataGeladen();  
                                                                                                 /// TO: kijkt als bijde CkeckBox's zijn aangevink 
                                                                                                 /// kijkt als bijde csv files zijn geladen
@@ -106,7 +106,9 @@ namespace LeagueSimulator2._0
             }
         }
 
-        /********/// activerd de button in de menu 
+
+
+        /**********/// activerd de button in de menu 
         private void EnableTabsEnDataGridAlsDataGeladen()
         {
             if (CheckBoxLaadAbilityData.IsChecked == true && CheckBoxLaadChamionData.IsChecked == true) // kijkt als bijde csv files geladen zijn 
@@ -116,6 +118,20 @@ namespace LeagueSimulator2._0
                 overzichtMatches.IsEnabled = true;// zet de menu button op active 
             }
         }
+
+      
+        
+        
+        
+        // 
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+
 
         // sort
         private void ComboBoxPositions_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -132,11 +148,7 @@ namespace LeagueSimulator2._0
         {
 
         }
-        // 
-        private void ResetButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+    
 
 
         // open wpf
