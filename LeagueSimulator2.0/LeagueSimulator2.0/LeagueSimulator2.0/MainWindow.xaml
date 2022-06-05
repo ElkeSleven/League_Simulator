@@ -6,7 +6,17 @@
         xmlns:local="clr-namespace:LeagueSimulator2._0"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="MainWindow" Height="550" Width="1000">
+        
+        Title="Overzicht champions" Height="550" Width="1000">
+    
+    
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Simuleer Match" Click="simuleerMatch_Click" Name="simuleerMatch" FontSize="16" Padding="2"/>
+            <MenuItem Header="Overzicht Matches" Click="overzichtMatches_Click" Name="overzichtMatches" FontSize="16" Padding="2"/>
+        </Menu>
+  
+    
     <Grid Background="#cd9929">
 
                 <Grid Background="#01434f">
@@ -82,4 +92,5 @@
                 </Grid>
 
     </Grid>
+    </DockPanel>
 </Window>

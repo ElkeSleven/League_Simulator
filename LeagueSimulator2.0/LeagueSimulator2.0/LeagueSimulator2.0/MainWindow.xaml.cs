@@ -35,14 +35,14 @@ namespace LeagueSimulator2._0
         {
             InitializeComponent();
         }
-
+        /************///
         private List<string> positionsList = new List<string>() { "sup", "mid", "bot", "jung", "top" };
-
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             VulComboBoxPositions();
         }
+       
+        /***********/// combobox word gevult met de waarde uit de list positionsList
         private void VulComboBoxPositions()
         {
             foreach (var pos in positionsList)
@@ -50,27 +50,29 @@ namespace LeagueSimulator2._0
                 ComboBoxPositions.Items.Add(pos);     // FROM: L:29  private List<string> positionsList = new List<string>() { "sup", "mid", "bot", "jung", "top" };  
             }
         }
-
+        
+        /***********/// verkennner word geapend en de file word doorgegeven aan Data.LoadCSV 
         private void LaadChampionDataButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = Path.Combine(Directory.GetCurrentDirectory(), "csv"); /// csv file staat in debug 
-                                                                                         /// C:\Users\elkes\OneDrive\Desktop\Semester 2\LeagueSim\LeagueSimulator\bin\Debug\csv
+            ofd.InitialDirectory = Path.Combine(Directory.GetCurrentDirectory(), "csv");        /// csv file staat in debug 
+                                                                                                /// ..\LeagueSim\LeagueSimulator\bin\Debug\csv
             try
             {
-                if (ofd.ShowDialog() == true)   /// opent de verkenner 
-                {
-                    ChampionsData.LoadCSV(ofd.FileName);   // TO: 'ChampionData' L18  ChampionData.LoadCSV
-                    DataGridChampions.ItemsSource = ChampionsData.GetDataViewChampions(); // vult het DataGrid op de xaml "DataGridChampions"
-                                                                                         // TO:'ChampionData' L70      return DataTableChampions.AsDataView();
-                    CheckBoxLaadChamionData.IsChecked = true; // CheckBox op de xaml word aangevinkt 
-                   // EnableTabsEnDataGridAlsDataGeladen();     // TO: L84 kijkt als bijde CkeckBox's zijn aangevink 
-                                                              // kijkt als bijde csv files zijn geladen
+                if (ofd.ShowDialog() == true)                                                   /// opent de verkenner 
+                {                                                                               
+                    ChampionsData.LoadCSV(ofd.FileName);                                        /// TO: 'ChampionData'   ChampionData.LoadCSV
+                    DataGridChampions.ItemsSource = ChampionsData.GetDataViewChampions();       /// vult het DataGrid op de xaml "DataGridChampions"
+                                                                                                /// TO:'ChampionData'    return DataTableChampions.AsDataView();
+                                                                                               
+                    CheckBoxLaadChamionData.IsChecked = true  ;                                 /// CheckBox op de xaml word aangevinkt 
+                   // EnableTabsEnDataGridAlsDataGeladen();                                     /// TO: kijkt als bijde CkeckBox's zijn aangevink 
+                                                                                                /// kijkt als bijde csv files zijn geladen
                 }
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);   // *foute format  *foute file   *fout bij het uitlezen 
+                MessageBox.Show(exception.Message);                                             /// *foute format  *foute file   *fout bij het uitlezen 
             }
 
 
@@ -78,30 +80,76 @@ namespace LeagueSimulator2._0
 
 
         }
+
+
+        /******/// verkennner word geapend en de file word doorgegeven aan Data.LoadCSV 
         private void LaadAbilityDataButton_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog();                  
+            ofd.InitialDirectory = Path.Combine(Directory.GetCurrentDirectory(), "csv");        /// csv file staat in debug 
+                                                                                                /// C:\Users\elkes\OneDrive\Desktop\Semester 2\LeagueSim\LeagueSimulator\bin\Debug\csv
+            try
+            {
+                if (ofd.ShowDialog() == true)                                                   /// opent de verkenner 
+                {
+                    AbilityData.LoadCSV(ofd.FileName);                                          /// TO: 'AbilityData' 
 
+                    CheckBoxLaadChamionData.IsChecked = true;                                   /// CheckBox op de xaml word aangevinkt 
+                    EnableTabsEnDataGridAlsDataGeladen();                                       /// EnableTabsEnDataGridAlsDataGeladen();  
+                                                                                                /// TO: kijkt als bijde CkeckBox's zijn aangevink 
+                                                                                                /// kijkt als bijde csv files zijn geladen
+                }   
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);                                              /// *foute format  *foute file   *fout bij het uitlezen 
+            }
         }
+
+        /********/// activerd de button in de menu 
         private void EnableTabsEnDataGridAlsDataGeladen()
         {
-
+            if (CheckBoxLaadAbilityData.IsChecked == true && CheckBoxLaadChamionData.IsChecked == true) // kijkt als bijde csv files geladen zijn 
+            {
+                DataGridChampions.IsEnabled = true;  // zet DataGridChampions_SelectionChanged op active
+                simuleerMatch.IsEnabled = true; // zet de menu button op active 
+                overzichtMatches.IsEnabled = true;// zet de menu button op active 
+            }
         }
+
+        // sort
         private void ComboBoxPositions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+        // sort
         private void DataGridChampions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+        // sort 
         private void BestToWorstButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
+        // 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+
+        // open wpf
+        private void overzichtMatches_Click(object sender, RoutedEventArgs e)
+        {
+            OverzichtMatches oM = new OverzichtMatches();
+            oM.ShowDialog();
+        }
+        // open wpf
+        private void simuleerMatch_Click(object sender, RoutedEventArgs e)
+        {
+            SimuleerMatch sM = new SimuleerMatch();
+            sM.ShowDialog();
+        }
     }
 }

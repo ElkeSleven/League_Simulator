@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LeagueLibrary.DataAccess;
+
 
 namespace LeagueSimulator2._0
 {
@@ -23,10 +25,20 @@ namespace LeagueSimulator2._0
         {
             InitializeComponent();
         }
-        private void ExportToXMLButton_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            MatchData.InitializeDataTableMatches();                         // TO: 'MatchData'
+
+            DataGridMatches.ItemsSource = MatchData.GetDataViewMatches();   // vult het DataGrid op de xaml "DataGridMatches"
+                                                                            // TO: 'MatchData'  return 
         }
 
+
+
+        private void ExportToXMLButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
 
     }
