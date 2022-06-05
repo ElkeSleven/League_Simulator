@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 using LeagueLibrary.Entities;
 using System.Data;
 using System.IO;
-
+///ok
 namespace LeagueLibrary.DataAccess
 {
     public static class AbilityData
     {
-        private static List<Ability> Abilities { get; set; }
-
-        public static void LoadCSV(string padNaarCsv)
+         public static List<Ability> Abilities { get; set; }
+         public static void LoadCSV(string padNaarCsv)
         {
             Abilities = new List<Ability>();
             try
@@ -42,6 +41,18 @@ namespace LeagueLibrary.DataAccess
 
 
 
+        }
+         public static List<Ability> GetAbilitiesByChampionName(string championName)
+        {
+            if (Abilities != null)
+            {
+                var result = from ability in Abilities
+                    where ability.ChampionName.Equals(championName)
+                    select ability;
+                return result.ToList();
+            }
+
+            return null;
         }
 
     }

@@ -9,9 +9,9 @@ namespace LeagueLibrary.Entities
     public class Ability
     {
 
-        int Id { get; set; }
-        string ChampionName { get; set; }
-        string Name { get; set; }
+        public int Id { get; set; }
+        public string ChampionName { get; set; }
+        public string Name { get; set; }
 
 
       

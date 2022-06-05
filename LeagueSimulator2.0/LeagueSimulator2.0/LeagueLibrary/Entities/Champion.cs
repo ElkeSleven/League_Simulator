@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+// ok 
 namespace LeagueLibrary.Entities
 {
     public class Champion
@@ -24,10 +25,28 @@ namespace LeagueLibrary.Entities
             return cost_string + " IP: " + CostIP + "RP: " + CostRP;
              
         }
+        
 
         public override string ToString()
         {
             return $"{Name} {Title}";
         }
+
+        // constructor  Name--L10    name--l35    (string name)--'ChampoinsData.cs'--l154  
+        public Champion(string name, string title, string @class, int releaseYear, List<Ability> abilities, List<string> positions, string iconSource, string bannerSource, int costIp, int costRp)
+        {
+            Name = name;
+            Title = title;
+            Class = @class;
+            ReleaseYear = releaseYear;
+            Abilities = abilities;
+            Positions = positions;
+            IconSource = iconSource;
+            BannerSource = bannerSource;
+            CostIP = costIp;
+            CostRP = costRp;
+        }
+
+
     }
 }

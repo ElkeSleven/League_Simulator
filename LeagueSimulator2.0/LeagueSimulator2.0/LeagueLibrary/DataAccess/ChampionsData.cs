@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 using System.Data;  // DataTabel
 using System.IO;  // File
+using LeagueLibrary.Entities;
 
+//ok
 namespace LeagueLibrary.DataAccess
 {
     public static class ChampionsData
@@ -88,6 +90,80 @@ namespace LeagueLibrary.DataAccess
             throw new Exception("Datagrid is null!");
 
         }
+
+        // sorteren 
+        public static DataView GetDataViewChampionsByPosition(string position)
+        {
+            if (DataTableChampions != null)
+            {
+                var result = from data in DataTableChampions.AsEnumerable()
+                             where data.ItemArray.Contains(position)
+                             select data;
+                return result.AsDataView();
+            }
+            throw new Exception("Datagrid is null!");
+        }
+
+
+        // sorteren 
+        public static DataView GetDataViewChampionsBestToWorst()
+        {
+            if (DataTableChampions != null)
+            {
+                var result = from data in DataTableChampions.AsEnumerable()
+                             orderby data.Field<int>("ReleaseYear") descending,
+                                data.Field<string>("ChampionPosition2") == null,
+                                 data.Field<string>("ChampionPosition3") == null,
+                                data.Field<string>("ChampionName")
+                             select data;
+
+                return result.AsDataView();
+            }
+            throw new Exception("Datagrid is null!");
+        }
+
+
+        // sorteren 
+        public static Champion GetRandomChampionByPosition(string position)
+        {
+            if (DataTableChampions != null)
+            {
+                DataView dv = GetDataViewChampionsByPosition(position);
+                DataRowView row = dv[r.Next(0, dv.Count)];
+
+                string championsName = row["ChampionName"].ToString();
+                string ChampionTitle = row["ChampionTitle"].ToString();
+                string ChampionClass = row["ChampionClass"].ToString();
+                int ReleaseYear = int.Parse(row["ReleaseYear"].ToString());
+                string ChampionPosition1 = row["ChampionPosition1"].ToString();
+                string ChampionPosition2 = row["ChampionPosition2"] != null ? row["ChampionPosition2"].ToString() : null;
+                string ChampionPosition3 = row["ChampionPosition3"] != null ? row["ChampionPosition3"].ToString() : null;
+                string ChampionIcon = row["ChampionIcon"].ToString();
+                string ChampionBanner = row["ChampionBanner"].ToString();
+                int RPCost = int.Parse(row["ChampionRPCost"].ToString());
+                int IPCost = int.Parse(row["ChampionIPCost"].ToString());
+
+                List<string> positions = new List<string>();
+                positions.Add(ChampionPosition1);
+                if (ChampionPosition2 != null)
+                    positions.Add(ChampionPosition2);
+                if (ChampionPosition3 != null)
+                    positions.Add(ChampionPosition3);
+
+                List<Ability> abilities = AbilityData.GetAbilitiesByChampionName(championsName);
+
+                Champion randomChampion = new Champion(championsName, ChampionTitle, ChampionClass,
+                    ReleaseYear, abilities, positions, ChampionIcon, ChampionBanner, IPCost, RPCost);
+
+                return randomChampion;
+            }
+            throw new Exception("Datagrid is null!");
+        }
+
+
+
+
+
 
 
     }
