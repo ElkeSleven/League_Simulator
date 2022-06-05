@@ -42,75 +42,77 @@ namespace LeagueClassLibrary.DataAccess
 {
     public static class MatchData
     {
-        private static DataTable DataTabelMatches;
+        public static DataTable DataTableMatches { get; set; }
+
         public static void InitializeDataTableMatches()
         {
-          
+            try
+            {
+                DataTableMatches = new DataTable("Matches");
 
-            /*
-             * 
-             o Deze methode initialiseert de DataTableMatches met een Id (int),
-            Code (string) en Winner (string) kolom. Zorg er voor dat de Id kolom
-            automatisch incrementeert. Zie tabel 3.
-             */
+                DataColumn dataColumnId = new DataColumn("Id", typeof(int));
+                DataColumn dataColumnCode = new DataColumn("Code", typeof(string));
+                DataColumn dataColumnWinner = new DataColumn("Winner", typeof(string));
+                dataColumnId.AutoIncrement = true;
+                dataColumnId.AutoIncrementSeed = 1;
+                dataColumnId.AutoIncrementStep = 1;
 
+                DataTableMatches.Columns.AddRange(new DataColumn[]
+                {
+                    dataColumnId,dataColumnCode,dataColumnWinner
+                });
+                DataColumn[] primaryKey = { dataColumnId };
+                DataTableMatches.PrimaryKey = primaryKey;
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
+
         public static void AddFinishedMatch(Match match)
         {
+            if (DataTableMatches != null)
+            {
+                string winner = match.Winner == 1 ? "Red" : "Blue";
+                DataRow row = DataTableMatches.NewRow();
+                row[1] = winner;
+                row[2] = match.Code;
 
-
-            /*
-             * o Deze methode voegt een match toe aan de DataTableMatches.
-Verander de team code van het match object naar de namen: “Red”
-of “Blue”. Als de Winner eigenschap van het match object gelijk is
-aan 1, dan wint team “Red”. Zoniet, dan wint team “Blue”.
-
-             */
+                DataTableMatches.Rows.Add(row);
+            }
         }
+
         public static DataView GetDataViewMatches()
         {
-            //o Deze methode zet de data uit DataTableMatches om naar een DataView  
-            DataView dv = new DataView();
-
-
-
-
-            return dv;
-
-
+            return DataTableMatches.AsDataView();
         }
-        public static void ExportToXML()
+
+        public static void ExportToXML(string filePath)
         {
-            DataTable dt = new DataTable();
-            
-
-
-
-
-
+            try
+            {
+                DataTableMatches.WriteXml(filePath + "/Matches.xml");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
-        /*        //● Publieke methode: ExportToXML() - void
-                o Deze methode exporteert de inhoud van DataTableMatches naar een
-        bestand, genaamd “Matches.xml”. Laat de gebruiker zelf kiezen waar
-        hij of zij dit bestand wenst op te slaan.*/
 
-
-
-
-
-        /*
-● Publieke methode: IsUniqueCode(string code) - bool
-o Deze methode geeft true terug als de gegeven code nog niet
-voorkomt in DataTableMatches.*/
         public static bool IsUniqueCode(string code)
         {
-            bool isUnique = false;
+            foreach (DataRow row in DataTableMatches.Rows)
+            {
+                if (row.ItemArray.Contains(code))
+                {
+                    return false;
+                }
+            }
 
-
-
-
-            return isUnique;
+            return true;
         }
 
 

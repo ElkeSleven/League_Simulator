@@ -4,24 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-/*
- ● Erft over van Match
-● Overschrijft GenereerTeams:
-o Deze methode zorgt er voor dat de twee lists, Team1Champions en
-Team2Champions elk gevuld zijn met drie champion objecten met de
-positions “top”, “top” en “jung”. Gebruik hier de
-GetRandomChampionByPosition(position) methode van ChampionData
-voor
- */
+//ok
 namespace LeagueClassLibrary.Entities
 {
     public class TwistedTreeline : Match
     {
-
-
-        public TwistedTreeline(string code) : base(code)
-        {
-        }
+        public TwistedTreeline(string code) : base(code){}
 
         public override void GenereerTeams()
         {
@@ -43,5 +31,28 @@ namespace LeagueClassLibrary.Entities
                 Team1Champions.Add(ChampionData.GetRandomChampionByPosition(position));
             }
         }
+
+
+        /// Ander manier voor GenereerTeams    voluitgeschreven
+/*        public override void GenereerTeams()
+        {
+            Team1Champions = new List<Champion>();
+            Team2Champions = new List<Champion>();
+
+            Champion top = ChampionData.GetRandomChampionByPosition("top");
+            Champion top2 = ChampionData.GetRandomChampionByPosition("top");
+            Champion jung = ChampionData.GetRandomChampionByPosition("jung");
+            Team1Champions.AddRange(new Champion[] { top,top2,jung
+            });
+
+            Champion topTeam2 = ChampionData.GetRandomChampionByPosition("top");
+            Champion top2Team2 = ChampionData.GetRandomChampionByPosition("top");
+            Champion jungTeam2 = ChampionData.GetRandomChampionByPosition("jung");
+            Team2Champions.AddRange(new Champion[] { topTeam2, top2Team2, jungTeam2
+            });
+        }*/
+
+
+
     }
 }

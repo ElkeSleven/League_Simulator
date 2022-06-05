@@ -1059,5 +1059,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LeagueClassLibrary\LeagueClassLibrary.csproj">
+      <Project>{b2f504a5-f569-49dc-98ec-21a6a753d2ea}</Project>
+      <Name>LeagueClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

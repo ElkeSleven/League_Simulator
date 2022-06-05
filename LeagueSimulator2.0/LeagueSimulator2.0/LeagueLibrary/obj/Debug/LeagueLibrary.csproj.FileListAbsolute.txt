@@ -1,0 +1,6 @@
+C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueSimulator2.0\LeagueSimulator2.0\LeagueLibrary\obj\Debug\LeagueLibrary.csproj.AssemblyReference.cache
+C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueSimulator2.0\LeagueSimulator2.0\LeagueLibrary\obj\Debug\LeagueLibrary.csproj.CoreCompileInputs.cache
+C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueSimulator2.0\LeagueSimulator2.0\LeagueLibrary\bin\Debug\LeagueLibrary.dll
+C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueSimulator2.0\LeagueSimulator2.0\LeagueLibrary\bin\Debug\LeagueLibrary.pdb
+C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueSimulator2.0\LeagueSimulator2.0\LeagueLibrary\obj\Debug\LeagueLibrary.dll
+C:\Users\elkes\OneDrive\Documents\GitHub\Voorbeelex-1pto-sem2-2022-a.Sander\LeagueSimulator2.0\LeagueSimulator2.0\LeagueLibrary\obj\Debug\LeagueLibrary.pdb

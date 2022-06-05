@@ -1,0 +1,85 @@
+﻿<Window x:Class="LeagueSimulator2._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LeagueSimulator2._0"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="550" Width="1000">
+    <Grid Background="#cd9929">
+
+                <Grid Background="#01434f">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="140px"/>
+                        <ColumnDefinition Width="140px"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <DataGrid 
+                        Name="DataGridChampions"
+                        Margin="20"
+                        Grid.RowSpan="5"
+                        IsReadOnly="True" SelectionChanged="DataGridChampions_SelectionChanged"></DataGrid>
+                    <Button Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Margin="10" Background="#31a0a9" Click="LaadChampionDataButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="20 0">Laad Champion Data</TextBlock>
+                            <CheckBox
+                                Name="CheckBoxLaadChamionData"
+                                IsEnabled="False"></CheckBox>
+                        </StackPanel>
+                    </Button>
+                    <Button Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Grid.Row="1"
+                            Margin="10" Background="#31a0a9" Click="LaadAbilityDataButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="20 0">Laad Ability Data</TextBlock>
+                            <CheckBox
+                                Name="CheckBoxLaadAbilityData"
+                                IsEnabled="False"></CheckBox>
+                        </StackPanel>
+                    </Button>
+                    <ComboBox
+                        Name="ComboBoxPositions"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        FontSize="20"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Margin="10" SelectionChanged="ComboBoxPositions_SelectionChanged">
+                    </ComboBox>
+                    <Button Margin="10" Background="#31a0a9"
+                            Grid.Row="3"
+                            Grid.Column="1" Click="BestToWorstButton_Click">Best to worst</Button>
+                    <Button Margin="10" Background="#31a0a9"
+                            Grid.Row="3"
+                            Grid.Column="2" Click="ResetButton_Click">Reset</Button>
+                    <Viewbox
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        Margin="20" >
+                        <TextBlock Name="TextBlockChampionTitle"
+                               
+                                   Foreground="#cd9929">Name and Title</TextBlock>
+                    </Viewbox>
+                    <Image
+                        Name="ImageChampion"
+                        Grid.Column="2"
+                        Grid.Row="4"
+                        Margin="10"></Image>
+                </Grid>
+
+    </Grid>
+</Window>

@@ -4,24 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /*
-Champion:
-● Eigenschap: Name - string
-● Eigenschap: Title - string
-● Eigenschap: Class - string
-● Eigenschap: ReleaseYear - int
-● Eigenschap: Abilities - List < Ability >
-● Eigenschap: Positions - List<string>
-● Eigenschap: IconSource - string
-● Eigenschap: BannerSource - string
-● Eigenschap: CostIP - int
-● Eigenschap: CostRP - int
-● Constructor met een parameter voor elke eigenschap.
-● Overschrijft ToString():
-
-o Deze methode geeft de naam en titel terug van de champion.
-● Publieke methode: GetCost() - string
-o Deze methode geeft de IP en RP cost terug in de volgende template:
-“RP: { CostRP} / IP: { CostIP}”.
+ok
 */
 
 namespace LeagueClassLibrary.Entities
@@ -54,16 +37,10 @@ namespace LeagueClassLibrary.Entities
             CostRP = costRP;
             CostRP = costIP;
         }
-
         public string GetCost()
         {
             return $"RP: {CostRP} / IP: { CostIP}";
         }
-
-
-
-
-
         public override string ToString()
         {
             return $"{Name} {Title}";

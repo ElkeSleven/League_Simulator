@@ -17,23 +17,24 @@ namespace LeagueClassLibrary.Entities
 {
     public abstract class Match : IWinnable
     {
-        public List<Champion> Team1Champions { get; set; } = new List<Champion>();
-
-        public List<Champion> Team2Champions { get; set; } = new List<Champion> { };
-
+        public List<Champion> Team1Champions { get; set; }
+        public List<Champion> Team2Champions { get; set; } 
         public int Winner { get; set; }
-
         public string Code { get; set; }
-
         public Match(string code)
         {
             Code = code;
         }
-
         public abstract void GenereerTeams();
+
+
+
 
         public void DiscideWinner()
         {
+            
+            
+            
             throw new NotImplementedException();
         }
     }

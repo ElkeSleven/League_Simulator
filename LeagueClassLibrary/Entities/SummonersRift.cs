@@ -15,10 +15,7 @@ namespace LeagueClassLibrary.Entities
 {
     public class SummonersRift : Match
     {
-        public SummonersRift(string code) : base(code)
-        {
-
-        }
+        public SummonersRift(string code) : base(code){}
 
         public override void GenereerTeams()
         {
@@ -40,5 +37,27 @@ namespace LeagueClassLibrary.Entities
             }
 
         }
+
+
+        /// Ander manier voor GenereerTeams    voluitgeschreven
+/*        public override void GenereerTeams()
+        {
+            Team1Champions = new List<Champion>();
+            Team2Champions = new List<Champion>();
+
+            Champion sup = ChampionData.GetRandomChampionByPosition("sup");
+            Champion mid = ChampionData.GetRandomChampionByPosition("mid");
+            Champion jung = ChampionData.GetRandomChampionByPosition("jung");
+            Champion bot = ChampionData.GetRandomChampionByPosition("bot");
+            Champion top = ChampionData.GetRandomChampionByPosition("top");
+            Team1Champions.AddRange(new Champion[] { sup, mid, jung, bot, top });
+
+            Champion sup2 = ChampionData.GetRandomChampionByPosition("sup");
+            Champion mid2 = ChampionData.GetRandomChampionByPosition("mid");
+            Champion jung2 = ChampionData.GetRandomChampionByPosition("jung");
+            Champion bot2 = ChampionData.GetRandomChampionByPosition("bot");
+            Champion top2 = ChampionData.GetRandomChampionByPosition("top");
+            Team2Champions.AddRange(new Champion[] { sup2, mid2, jung2, bot2, top2 });
+        }*/
     }
 }

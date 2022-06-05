@@ -52,12 +52,6 @@
     <Compile Include="Entities\TwistedTreeline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LeagueSimulator\LeagueSimulator.csproj">
-      <Project>{5e6fc19c-a48a-4725-a8fe-615a70cb5cac}</Project>
-      <Name>LeagueSimulator</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

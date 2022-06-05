@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B16BFF27-35AA-4CB0-A5AD-A48FBA082240}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LeagueSimulator2._0</RootNamespace>
+    <AssemblyName>LeagueSimulator2.0</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="OverzichtMatches.xaml.cs">
+      <DependentUpon>OverzichtMatches.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SimuleerMatch.xaml.cs">
+      <DependentUpon>SimuleerMatch.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="OverzichtMatches.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SimuleerMatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="csv\leagueOfLegendsAbilities.csv" />
+    <None Include="csv\leagueOfLegendsChampions.csv" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LeagueLibrary\LeagueLibrary.csproj">
+      <Project>{2730fe6c-e6a5-4f4d-959c-c748175c0071}</Project>
+      <Name>LeagueLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\banners\Aatrox_banner.jpg" />
+    <Resource Include="images\banners\Ahri_banner.jpg" />
+    <Resource Include="images\banners\Akali_banner.jpg" />
+    <Resource Include="images\banners\Akshan_banner.jpg" />
+    <Resource Include="images\banners\Alistar_banner.jpg" />
+    <Resource Include="images\banners\Amumu_banner.jpg" />
+    <Resource Include="images\banners\Anivia_banner.jpg" />
+    <Resource Include="images\banners\Annie_banner.jpg" />
+    <Resource Include="images\banners\Aphelios_banner.jpg" />
+    <Resource Include="images\banners\Ashe_banner.jpg" />
+    <Resource Include="images\banners\Aurelion Sol_banner.jpg" />
+    <Resource Include="images\banners\Azir_banner.jpg" />
+    <Resource Include="images\banners\Bard_banner.jpg" />
+    <Resource Include="images\banners\Blitzcrank_banner.jpg" />
+    <Resource Include="images\banners\Brand_banner.jpg" />
+    <Resource Include="images\banners\Braum_banner.jpg" />
+    <Resource Include="images\banners\Caitlyn_banner.jpg" />
+    <Resource Include="images\banners\Camille_banner.jpg" />
+    <Resource Include="images\banners\Cassiopeia_banner.jpg" />
+    <Resource Include="images\banners\Cho%27Gath_banner.jpg" />
+    <Resource Include="images\banners\Corki_banner.jpg" />
+    <Resource Include="images\banners\Darius_banner.jpg" />
+    <Resource Include="images\banners\Diana_banner.jpg" />
+    <Resource Include="images\banners\Dr. Mundo_banner.jpg" />
+    <Resource Include="images\banners\Draven_banner.jpg" />
+    <Resource Include="images\banners\Ekko_banner.jpg" />
+    <Resource Include="images\banners\Elise_banner.jpg" />
+    <Resource Include="images\banners\Evelynn_banner.jpg" />
+    <Resource Include="images\banners\Ezreal_banner.jpg" />
+    <Resource Include="images\banners\Fiddlesticks_banner.jpg" />
+    <Resource Include="images\banners\Fiora_banner.jpg" />
+    <Resource Include="images\banners\Fizz_banner.jpg" />
+    <Resource Include="images\banners\Galio_banner.jpg" />
+    <Resource Include="images\banners\Gangplank_banner.jpg" />
+    <Resource Include="images\banners\Garen_banner.jpg" />
+    <Resource Include="images\banners\Gnar_banner.jpg" />
+    <Resource Include="images\banners\Gragas_banner.jpg" />
+    <Resource Include="images\banners\Graves_banner.jpg" />
+    <Resource Include="images\banners\Gwen_banner.jpg" />
+    <Resource Include="images\banners\Hecarim_banner.jpg" />
+    <Resource Include="images\banners\Heimerdinger_banner.jpg" />
+    <Resource Include="images\banners\Illaoi_banner.jpg" />
+    <Resource Include="images\banners\Irelia_banner.jpg" />
+    <Resource Include="images\banners\Ivern_banner.jpg" />
+    <Resource Include="images\banners\Janna_banner.jpg" />
+    <Resource Include="images\banners\Jarvan IV_banner.jpg" />
+    <Resource Include="images\banners\Jax_banner.jpg" />
+    <Resource Include="images\banners\Jayce_banner.jpg" />
+    <Resource Include="images\banners\Jhin_banner.jpg" />
+    <Resource Include="images\banners\Jinx_banner.jpg" />
+    <Resource Include="images\banners\Kai%27Sa_banner.jpg" />
+    <Resource Include="images\banners\Kalista_banner.jpg" />
+    <Resource Include="images\banners\Karma_banner.jpg" />
+    <Resource Include="images\banners\Karthus_banner.jpg" />
+    <Resource Include="images\banners\Kassadin_banner.jpg" />
+    <Resource Include="images\banners\Katarina_banner.jpg" />
+    <Resource Include="images\banners\Kayle_banner.jpg" />
+    <Resource Include="images\banners\Kayn_banner.jpg" />
+    <Resource Include="images\banners\Kennen_banner.jpg" />
+    <Resource Include="images\banners\Kha%27Zix_banner.jpg" />
+    <Resource Include="images\banners\Kindred_banner.jpg" />
+    <Resource Include="images\banners\Kled_banner.jpg" />
+    <Resource Include="images\banners\Kog%27Maw_banner.jpg" />
+    <Resource Include="images\banners\LeBlanc_banner.jpg" />
+    <Resource Include="images\banners\Lee Sin_banner.jpg" />
+    <Resource Include="images\banners\Leona_banner.jpg" />
+    <Resource Include="images\banners\Lillia_banner.jpg" />
+    <Resource Include="images\banners\Lissandra_banner.jpg" />
+    <Resource Include="images\banners\Lucian_banner.jpg" />
+    <Resource Include="images\banners\Lulu_banner.jpg" />
+    <Resource Include="images\banners\Lux_banner.jpg" />
+    <Resource Include="images\banners\Malphite_banner.jpg" />
+    <Resource Include="images\banners\Malzahar_banner.jpg" />
+    <Resource Include="images\banners\Maokai_banner.jpg" />
+    <Resource Include="images\banners\Master Yi_banner.jpg" />
+    <Resource Include="images\banners\Miss Fortune_banner.jpg" />
+    <Resource Include="images\banners\Mordekaiser_banner.jpg" />
+    <Resource Include="images\banners\Morgana_banner.jpg" />
+    <Resource Include="images\banners\Nami_banner.jpg" />
+    <Resource Include="images\banners\Nasus_banner.jpg" />
+    <Resource Include="images\banners\Nautilus_banner.jpg" />
+    <Resource Include="images\banners\Neeko_banner.jpg" />
+    <Resource Include="images\banners\Nidalee_banner.jpg" />
+    <Resource Include="images\banners\Nocturne_banner.jpg" />
+    <Resource Include="images\banners\Nunu &amp; Willump_banner.jpg" />
+    <Resource Include="images\banners\Olaf_banner.jpg" />
+    <Resource Include="images\banners\Orianna_banner.jpg" />
+    <Resource Include="images\banners\Ornn_banner.jpg" />
+    <Resource Include="images\banners\Pantheon_banner.jpg" />
+    <Resource Include="images\banners\Poppy_banner.jpg" />
+    <Resource Include="images\banners\Pyke_banner.jpg" />
+    <Resource Include="images\banners\Qiyana_banner.jpg" />
+    <Resource Include="images\banners\Quinn_banner.jpg" />
+    <Resource Include="images\banners\Rakan_banner.jpg" />
+    <Resource Include="images\banners\Rammus_banner.jpg" />
+    <Resource Include="images\banners\Rek%27Sai_banner.jpg" />
+    <Resource Include="images\banners\Rell_banner.jpg" />
+    <Resource Include="images\banners\Renata Glasc_banner.jpg" />
+    <Resource Include="images\banners\Renekton_banner.jpg" />
+    <Resource Include="images\banners\Rengar_banner.jpg" />
+    <Resource Include="images\banners\Riven_banner.jpg" />
+    <Resource Include="images\banners\Rumble_banner.jpg" />
+    <Resource Include="images\banners\Ryze_banner.jpg" />
+    <Resource Include="images\banners\Samira_banner.jpg" />
+    <Resource Include="images\banners\Sejuani_banner.jpg" />
+    <Resource Include="images\banners\Senna_banner.jpg" />
+    <Resource Include="images\banners\Seraphine_banner.jpg" />
+    <Resource Include="images\banners\Sett_banner.jpg" />
+    <Resource Include="images\banners\Shaco_banner.jpg" />
+    <Resource Include="images\banners\Shen_banner.jpg" />
+    <Resource Include="images\banners\Shyvana_banner.jpg" />
+    <Resource Include="images\banners\Singed_banner.jpg" />
+    <Resource Include="images\banners\Sion_banner.jpg" />
+    <Resource Include="images\banners\Sivir_banner.jpg" />
+    <Resource Include="images\banners\Skarner_banner.jpg" />
+    <Resource Include="images\banners\Sona_banner.jpg" />
+    <Resource Include="images\banners\Soraka_banner.jpg" />
+    <Resource Include="images\banners\Swain_banner.jpg" />
+    <Resource Include="images\banners\Sylas_banner.jpg" />
+    <Resource Include="images\banners\Syndra_banner.jpg" />
+    <Resource Include="images\banners\Tahm Kench_banner.jpg" />
+    <Resource Include="images\banners\Taliyah_banner.jpg" />
+    <Resource Include="images\banners\Talon_banner.jpg" />
+    <Resource Include="images\banners\Taric_banner.jpg" />
+    <Resource Include="images\banners\Teemo_banner.jpg" />
+    <Resource Include="images\banners\Thresh_banner.jpg" />
+    <Resource Include="images\banners\Tristana_banner.jpg" />
+    <Resource Include="images\banners\Trundle_banner.jpg" />
+    <Resource Include="images\banners\Tryndamere_banner.jpg" />
+    <Resource Include="images\banners\Twisted Fate_banner.jpg" />
+    <Resource Include="images\banners\Twitch_banner.jpg" />
+    <Resource Include="images\banners\Udyr_banner.jpg" />
+    <Resource Include="images\banners\Urgot_banner.jpg" />
+    <Resource Include="images\banners\Varus_banner.jpg" />
+    <Resource Include="images\banners\Vayne_banner.jpg" />
+    <Resource Include="images\banners\Veigar_banner.jpg" />
+    <Resource Include="images\banners\Vel%27Koz_banner.jpg" />
+    <Resource Include="images\banners\Vex_banner.jpg" />
+    <Resource Include="images\banners\Viego_banner.jpg" />
+    <Resource Include="images\banners\Viktor_banner.jpg" />
+    <Resource Include="images\banners\Vi_banner.jpg" />
+    <Resource Include="images\banners\Vladimir_banner.jpg" />
+    <Resource Include="images\banners\Volibear_banner.jpg" />
+    <Resource Include="images\banners\Warwick_banner.jpg" />
+    <Resource Include="images\banners\Wukong_banner.jpg" />
+    <Resource Include="images\banners\Xayah_banner.jpg" />
+    <Resource Include="images\banners\Xerath_banner.jpg" />
+    <Resource Include="images\banners\Xin Zhao_banner.jpg" />
+    <Resource Include="images\banners\Yasuo_banner.jpg" />
+    <Resource Include="images\banners\Yone_banner.jpg" />
+    <Resource Include="images\banners\Yorick_banner.jpg" />
+    <Resource Include="images\banners\Yuumi_banner.jpg" />
+    <Resource Include="images\banners\Zac_banner.jpg" />
+    <Resource Include="images\banners\Zed_banner.jpg" />
+    <Resource Include="images\banners\Zeri_banner.jpg" />
+    <Resource Include="images\banners\Ziggs_banner.jpg" />
+    <Resource Include="images\banners\Zilean_banner.jpg" />
+    <Resource Include="images\banners\Zoe_banner.jpg" />
+    <Resource Include="images\banners\Zyra_banner.jpg" />
+    <Resource Include="images\icons\Aatrox_icon.png" />
+    <Resource Include="images\icons\Ahri_icon.png" />
+    <Resource Include="images\icons\Akali_icon.png" />
+    <Resource Include="images\icons\Akshan_icon.png" />
+    <Resource Include="images\icons\Alistar_icon.png" />
+    <Resource Include="images\icons\Amumu_icon.png" />
+    <Resource Include="images\icons\Anivia_icon.png" />
+    <Resource Include="images\icons\Annie_icon.png" />
+    <Resource Include="images\icons\Aphelios_icon.png" />
+    <Resource Include="images\icons\Ashe_icon.png" />
+    <Resource Include="images\icons\Aurelion Sol_icon.png" />
+    <Resource Include="images\icons\Azir_icon.png" />
+    <Resource Include="images\icons\Bard_icon.png" />
+    <Resource Include="images\icons\Blitzcrank_icon.png" />
+    <Resource Include="images\icons\Brand_icon.png" />
+    <Resource Include="images\icons\Braum_icon.png" />
+    <Resource Include="images\icons\Caitlyn_icon.png" />
+    <Resource Include="images\icons\Camille_icon.png" />
+    <Resource Include="images\icons\Cassiopeia_icon.png" />
+    <Resource Include="images\icons\Cho%27Gath_icon.png" />
+    <Resource Include="images\icons\Corki_icon.png" />
+    <Resource Include="images\icons\Darius_icon.png" />
+    <Resource Include="images\icons\Diana_icon.png" />
+    <Resource Include="images\icons\Dr. Mundo_icon.png" />
+    <Resource Include="images\icons\Draven_icon.png" />
+    <Resource Include="images\icons\Ekko_icon.png" />
+    <Resource Include="images\icons\Elise_icon.png" />
+    <Resource Include="images\icons\empty_icon.png" />
+    <Resource Include="images\icons\Evelynn_icon.png" />
+    <Resource Include="images\icons\Ezreal_icon.png" />
+    <Resource Include="images\icons\Fiddlesticks_icon.png" />
+    <Resource Include="images\icons\Fiora_icon.png" />
+    <Resource Include="images\icons\Fizz_icon.png" />
+    <Resource Include="images\icons\Galio_icon.png" />
+    <Resource Include="images\icons\Gangplank_icon.png" />
+    <Resource Include="images\icons\Garen_icon.png" />
+    <Resource Include="images\icons\Gnar_icon.png" />
+    <Resource Include="images\icons\Gragas_icon.png" />
+    <Resource Include="images\icons\Graves_icon.png" />
+    <Resource Include="images\icons\Gwen_icon.png" />
+    <Resource Include="images\icons\Hecarim_icon.png" />
+    <Resource Include="images\icons\Heimerdinger_icon.png" />
+    <Resource Include="images\icons\Illaoi_icon.png" />
+    <Resource Include="images\icons\Irelia_icon.png" />
+    <Resource Include="images\icons\Ivern_icon.png" />
+    <Resource Include="images\icons\Janna_icon.png" />
+    <Resource Include="images\icons\Jarvan IV_icon.png" />
+    <Resource Include="images\icons\Jax_icon.png" />
+    <Resource Include="images\icons\Jayce_icon.png" />
+    <Resource Include="images\icons\Jhin_icon.png" />
+    <Resource Include="images\icons\Jinx_icon.png" />
+    <Resource Include="images\icons\Kai%27Sa_icon.png" />
+    <Resource Include="images\icons\Kalista_icon.png" />
+    <Resource Include="images\icons\Karma_icon.png" />
+    <Resource Include="images\icons\Karthus_icon.png" />
+    <Resource Include="images\icons\Kassadin_icon.png" />
+    <Resource Include="images\icons\Katarina_icon.png" />
+    <Resource Include="images\icons\Kayle_icon.png" />
+    <Resource Include="images\icons\Kayn_icon.png" />
+    <Resource Include="images\icons\Kennen_icon.png" />
+    <Resource Include="images\icons\Kha%27Zix_icon.png" />
+    <Resource Include="images\icons\Kindred_icon.png" />
+    <Resource Include="images\icons\Kled_icon.png" />
+    <Resource Include="images\icons\Kog%27Maw_icon.png" />
+    <Resource Include="images\icons\LeBlanc_icon.png" />
+    <Resource Include="images\icons\Lee Sin_icon.png" />
+    <Resource Include="images\icons\Leona_icon.png" />
+    <Resource Include="images\icons\Lillia_icon.png" />
+    <Resource Include="images\icons\Lissandra_icon.png" />
+    <Resource Include="images\icons\Lucian_icon.png" />
+    <Resource Include="images\icons\Lulu_icon.png" />
+    <Resource Include="images\icons\Lux_icon.png" />
+    <Resource Include="images\icons\Malphite_icon.png" />
+    <Resource Include="images\icons\Malzahar_icon.png" />
+    <Resource Include="images\icons\Maokai_icon.png" />
+    <Resource Include="images\icons\Master Yi_icon.png" />
+    <Resource Include="images\icons\Miss Fortune_icon.png" />
+    <Resource Include="images\icons\Mordekaiser_icon.png" />
+    <Resource Include="images\icons\Morgana_icon.png" />
+    <Resource Include="images\icons\Nami_icon.png" />
+    <Resource Include="images\icons\Nasus_icon.png" />
+    <Resource Include="images\icons\Nautilus_icon.png" />
+    <Resource Include="images\icons\Neeko_icon.png" />
+    <Resource Include="images\icons\Nidalee_icon.png" />
+    <Resource Include="images\icons\Nocturne_icon.png" />
+    <Resource Include="images\icons\Nunu &amp; Willump_icon.png" />
+    <Resource Include="images\icons\Olaf_icon.png" />
+    <Resource Include="images\icons\Orianna_icon.png" />
+    <Resource Include="images\icons\Ornn_icon.png" />
+    <Resource Include="images\icons\Pantheon_icon.png" />
+    <Resource Include="images\icons\Poppy_icon.png" />
+    <Resource Include="images\icons\Pyke_icon.png" />
+    <Resource Include="images\icons\Qiyana_icon.png" />
+    <Resource Include="images\icons\Quinn_icon.png" />
+    <Resource Include="images\icons\Rakan_icon.png" />
+    <Resource Include="images\icons\Rammus_icon.png" />
+    <Resource Include="images\icons\Rek%27Sai_icon.png" />
+    <Resource Include="images\icons\Rell_icon.png" />
+    <Resource Include="images\icons\Renata Glasc_icon.png" />
+    <Resource Include="images\icons\Renekton_icon.png" />
+    <Resource Include="images\icons\Rengar_icon.png" />
+    <Resource Include="images\icons\Riven_icon.png" />
+    <Resource Include="images\icons\Rumble_icon.png" />
+    <Resource Include="images\icons\Ryze_icon.png" />
+    <Resource Include="images\icons\Samira_icon.png" />
+    <Resource Include="images\icons\Sejuani_icon.png" />
+    <Resource Include="images\icons\Senna_icon.png" />
+    <Resource Include="images\icons\Seraphine_icon.png" />
+    <Resource Include="images\icons\Sett_icon.png" />
+    <Resource Include="images\icons\Shaco_icon.png" />
+    <Resource Include="images\icons\Shen_icon.png" />
+    <Resource Include="images\icons\Shyvana_icon.png" />
+    <Resource Include="images\icons\Singed_icon.png" />
+    <Resource Include="images\icons\Sion_icon.png" />
+    <Resource Include="images\icons\Sivir_icon.png" />
+    <Resource Include="images\icons\Skarner_icon.png" />
+    <Resource Include="images\icons\Sona_icon.png" />
+    <Resource Include="images\icons\Soraka_icon.png" />
+    <Resource Include="images\icons\Swain_icon.png" />
+    <Resource Include="images\icons\Sylas_icon.png" />
+    <Resource Include="images\icons\Syndra_icon.png" />
+    <Resource Include="images\icons\Tahm Kench_icon.png" />
+    <Resource Include="images\icons\Taliyah_icon.png" />
+    <Resource Include="images\icons\Talon_icon.png" />
+    <Resource Include="images\icons\Taric_icon.png" />
+    <Resource Include="images\icons\Teemo_icon.png" />
+    <Resource Include="images\icons\Thresh_icon.png" />
+    <Resource Include="images\icons\Tristana_icon.png" />
+    <Resource Include="images\icons\Trundle_icon.png" />
+    <Resource Include="images\icons\Tryndamere_icon.png" />
+    <Resource Include="images\icons\Twisted Fate_icon.png" />
+    <Resource Include="images\icons\Twitch_icon.png" />
+    <Resource Include="images\icons\Udyr_icon.png" />
+    <Resource Include="images\icons\Urgot_icon.png" />
+    <Resource Include="images\icons\Varus_icon.png" />
+    <Resource Include="images\icons\Vayne_icon.png" />
+    <Resource Include="images\icons\Veigar_icon.png" />
+    <Resource Include="images\icons\Vel%27Koz_icon.png" />
+    <Resource Include="images\icons\Vex_icon.png" />
+    <Resource Include="images\icons\Viego_icon.png" />
+    <Resource Include="images\icons\Viktor_icon.png" />
+    <Resource Include="images\icons\Vi_icon.png" />
+    <Resource Include="images\icons\Vladimir_icon.png" />
+    <Resource Include="images\icons\Volibear_icon.png" />
+    <Resource Include="images\icons\Warwick_icon.png" />
+    <Resource Include="images\icons\Wukong_icon.png" />
+    <Resource Include="images\icons\Xayah_icon.png" />
+    <Resource Include="images\icons\Xerath_icon.png" />
+    <Resource Include="images\icons\Xin Zhao_icon.png" />
+    <Resource Include="images\icons\Yasuo_icon.png" />
+    <Resource Include="images\icons\Yone_icon.png" />
+    <Resource Include="images\icons\Yorick_icon.png" />
+    <Resource Include="images\icons\Yuumi_icon.png" />
+    <Resource Include="images\icons\Zac_icon.png" />
+    <Resource Include="images\icons\Zed_icon.png" />
+    <Resource Include="images\icons\Zeri_icon.png" />
+    <Resource Include="images\icons\Ziggs_icon.png" />
+    <Resource Include="images\icons\Zilean_icon.png" />
+    <Resource Include="images\icons\Zoe_icon.png" />
+    <Resource Include="images\icons\Zyra_icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
