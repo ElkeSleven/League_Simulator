@@ -55,7 +55,7 @@ namespace LeagueLibrary.DataAccess
 
 
 
-            //** data inlezen 
+            //** data inlezen    *rijen staat op L26 
             rijen.Skip(1).ToList().ForEach(rij =>
             {
 
