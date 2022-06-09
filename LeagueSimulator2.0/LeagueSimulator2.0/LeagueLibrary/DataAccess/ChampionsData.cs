@@ -109,7 +109,7 @@ namespace LeagueLibrary.DataAccess
         }
 
 
-        //**Sort ****** sorteren op         *MainWPF Btn click 
+        //**Sort ****** sorteren             *MainWPF Btn click 
         public static DataView GetDataViewChampionsBestToWorst()
         {
             if (DataTableChampions != null)
@@ -127,7 +127,7 @@ namespace LeagueLibrary.DataAccess
         }
 
 
-        // sorteren                         *MatchWPF  3v3  5v5
+        // sorteren                          *MatchWPF  3v3  5v5
         public static Champion GetRandomChampionByPosition(string position)
         {
             if (DataTableChampions != null)
